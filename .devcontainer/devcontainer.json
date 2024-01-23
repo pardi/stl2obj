@@ -1,0 +1,20 @@
+{
+	"name": "STL2OBJ",
+	"build": {
+		// Sets the run context to one level up instead of the 
+		"context": "..",
+		"dockerfile": "../Dockerfile"
+	},
+	"containerEnv": {
+		"DISPLAY": "${localEnv:DISPLAY}",
+		"WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
+		"XDG_RUNTIME_DIR": "${localEnv:XDG_RUNTIME_DIR}",
+		"PULSE_SERVER": "${localEnv:PULSE_SERVER}",
+		"AMENT_CPPCHECK_ALLOW_SLOW_VERSIONS": "1"
+	},
+	"runArgs": [
+		"--network=host",
+		"--volume=/tmp/.X11-unix:/tmp/.x11-unix",
+		"--ipc=host"
+	]
+}
